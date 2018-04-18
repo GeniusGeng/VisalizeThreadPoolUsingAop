@@ -13,7 +13,7 @@ import java.util.concurrent.Future;
 
 /**
  *模拟一个任务
- *an example of a async task
+ *an example of an async task
  */
 @Component
 @Slf4j
