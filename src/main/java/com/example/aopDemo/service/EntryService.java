@@ -20,7 +20,6 @@ import java.util.stream.IntStream;
 public class EntryService implements CommandLineRunner {
     private AsyncTask asyncTask;
 
-
     @Autowired
     public EntryService(AsyncTask asyncTask) {
         this.asyncTask = asyncTask;
@@ -29,15 +28,9 @@ public class EntryService implements CommandLineRunner {
 
     @Override
     public void run(String... strings) {
-
-        BlockingQueue<Future<String>> queue = new LinkedBlockingQueue<>();
-
-        IntStream.rangeClosed(1,30).forEach(i->
-        {
-            Future<String> future = asyncTask.execAddData();
-            queue.add(future);
-
-        });
+        //使用初始化的线程池，开启了30个任务，使用一个阻塞队列接收任务的返回结果
+        BlockingQueue<Future<String>> queue = IntStream.rangeClosed(1, 30)
+                .mapToObj(i -> asyncTask.execAddData()).collect(Collectors.toCollection(LinkedBlockingQueue::new));
 
 
         IntStream.rangeClosed(1,30).forEach(i->
