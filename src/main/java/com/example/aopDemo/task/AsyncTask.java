@@ -13,11 +13,12 @@ import java.util.concurrent.Future;
 
 /**
  *模拟一个任务
+ *an example of a async task
  */
 @Component
 @Slf4j
 public class AsyncTask {
-
+    //annotating the method with @ExecutorInfo
     @Async("asyncServiceExecutor")
     @ExecutorInfo
     public Future<String> execAddData(){
