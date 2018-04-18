@@ -13,8 +13,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.stream.IntStream;
 
 /**
- * @author by gengrc
- * @since 2018/3/19
+ *实现CommandLineRunner的服务，spring boot启动后执行此类
  */
 @Slf4j
 @Service
