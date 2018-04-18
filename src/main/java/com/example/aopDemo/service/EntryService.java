@@ -29,6 +29,7 @@ public class EntryService implements CommandLineRunner {
     @Override
     public void run(String... strings) {
         //使用初始化的线程池，开启了30个任务，使用一个阻塞队列接收任务的返回结果
+        //using the initialized spring thread pool,generating 30 tasks,using a blocking queue to collect results
         BlockingQueue<Future<String>> queue = IntStream.rangeClosed(1, 30)
                 .mapToObj(i -> asyncTask.execAddData()).collect(Collectors.toCollection(LinkedBlockingQueue::new));
 
@@ -36,7 +37,7 @@ public class EntryService implements CommandLineRunner {
         IntStream.rangeClosed(1,30).forEach(i->
         {
             try {
-                queue.take().get();
+                queue.take().get();//阻塞接收每个任务的返回结果;block to get result for every task
             } catch (InterruptedException | ExecutionException e) {
                 e.printStackTrace();
             }
