@@ -10,8 +10,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 
 /**
  * initialize Spring Thread Pool
- * @author by gengrc
- * @since 2018/3/22
+ * spring启动时初始化线程池
  */
 @Configuration
 @EnableAsync
