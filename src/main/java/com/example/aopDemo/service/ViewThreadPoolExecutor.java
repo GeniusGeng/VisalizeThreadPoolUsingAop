@@ -12,8 +12,8 @@ import java.util.Arrays;
 import java.util.concurrent.ThreadPoolExecutor;
 
 /**
- * @author by gengrc
- * @since 2018/3/22
+ * Creating aspect
+ * 创建AOP切面
  */
 @Aspect
 @Component("viewThreadPoolExecutor")
@@ -47,7 +47,9 @@ public class ViewThreadPoolExecutor {
             String className = joinPoint.getSignature().getDeclaringTypeName();
             String methodName = joinPoint.getSignature().getName();
             showThreadPoolInfo();
+            
             Object result = joinPoint.proceed();
+            
             long end = System.currentTimeMillis() - start;
             log.debug("Method " + className + "." + methodName + " ()" + " execution time : "
                     + end + " ms");
