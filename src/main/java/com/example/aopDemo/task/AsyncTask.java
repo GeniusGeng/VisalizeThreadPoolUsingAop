@@ -12,8 +12,7 @@ import java.util.Random;
 import java.util.concurrent.Future;
 
 /**
- * @author by gengrc
- * @since 2018/3/22
+ *模拟一个任务
  */
 @Component
 @Slf4j
